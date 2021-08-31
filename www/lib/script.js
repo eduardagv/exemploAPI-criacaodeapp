@@ -7,12 +7,13 @@ const id = document.querySelector("#id");
 const alterar = document.querySelector("#alterar");
 const deletar = document.querySelector("#deletar");
 
+//ação de cadastrar uma pessoa e curso
 cadastrar.addEventListener("click", function (){
   let formdata = new FormData();
   formdata.append ('nome','${nome.value}');
   formdata.append ('curso','${curso.value}');
   
-  fetch(
+  fetch("https://www.jussimarleal.com.br/exemplo_api/pessoa"
     {
       body:formdata,
       method:"post",
@@ -26,7 +27,7 @@ cadastrar.addEventListener("click", function (){
 });
 //metodo que lista uma pessoa
 buscar.addEventListener("click",fuction(){
-  fetch({
+  fetch('https://www.jussimarleal.com.br/exemplo_api/pessoa/${id.value}',{
       method:"get",
       mode:'cors',
       cache:'default'
@@ -39,7 +40,7 @@ buscar.addEventListener("click",fuction(){
 })
 //metodo para alterar os dados dos registros
 alterar.addEventListener("click",fuction(){
-   fetch({
+   fetch('https://www.jussimarleal.com.br/exemplo_api/pessoa/${id.value}',{
       method:"put",
       mode:'cors',
       cache:'default'
@@ -57,7 +58,7 @@ alterar.addEventListener("click",fuction(){
 });
 //metodo para deletar um registro 
 deletar.addEventListener("click",fuction(){
-   fetch({
+   fetch'https://www.jussimarleal.com.br/exemplo_api/pessoa/${id.value}',{
       method:"delete",
       mode:'cors',
       cache:'default'
